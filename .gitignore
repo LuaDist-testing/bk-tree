@@ -1,0 +1,10 @@
+.*.s??
+*.lua
+!bk-tree.lua
+!example.lua
+*.txt
+docs/
+!examples/*
+!spec/*
+other_docs
+.*.s??
