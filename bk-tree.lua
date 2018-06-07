@@ -23,16 +23,12 @@ local function lazy_copy(t1)
 
 end
 
-local function min(...)
+local function min(a, b, c)
 
-	local args = {...}
-	local min_val = args[1]
+	local min_val = a
 
-	for i=1, #args do
-		if min_val > args[i] then
-			min_val = args[i]
-		end
-	end
+	if b < min_val then min_val = b end
+	if c < min_val then min_val = c end
 
 	return min_val
 
@@ -250,9 +246,13 @@ end
 -- tree:insert("warp")
 -- local result = tree:query_sorted("woop", 3)
 function bk_tree:query_sorted(word, n)
+
 	local result = self:query(word, n)
+
 	table.sort(result, function(a,b) return a.distance < b.distance end)
+
 	return result
+
 end
 
 return bk_tree
